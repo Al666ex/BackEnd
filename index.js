@@ -3,21 +3,13 @@ require('dotenv').config()
 
 const sequelize = require('./db')
 const {Post} = require('./models/models')
+const router = require('./router.js')
 
 const app = express();
 
 app.use(express.json())
 
-app.post('/', async (req, res) => {
-//    console.log(req.body)
-    try {
-        const {author, title, content, picture} = req.body;
-        const post = await Post.create({author, title, content, picture})
-        await res.json(post);            
-    } catch (error) {
-        res.status(500).json(error)        
-    }
-})
+app.use('/api',router)
 
 async function startApp(){
     try{        
