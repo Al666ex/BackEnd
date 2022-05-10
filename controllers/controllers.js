@@ -34,10 +34,9 @@ class Controlers{
     
     }     
 
-    async create(req, res) {
-        console.log(req.body)
+    async create(req, res) {        
         try {            
-            const post = await Services.create(req.body)            
+            const post = await Services.create(req.body, req.files.picture)            
             return await res.json(post);            
         } catch (error) {            
             res.status(500).json(error.message)        
