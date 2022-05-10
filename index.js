@@ -2,7 +2,6 @@ const express = require("express")
 require('dotenv').config()
 
 const sequelize = require('./db')
-const {Post} = require('./models/models')
 const router = require('./router.js')
 
 const app = express();
